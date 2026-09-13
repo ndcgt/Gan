@@ -76,8 +76,5 @@ The image the page shows comes out of `evaluater()`: DCGAN, WGAN-CP and WGAN-GP 
 ## The front end
 
 `templates/` and `static/assets/` are the HTML5 UP "Massively" template by [@ajlkn](https://html5up.net), free for personal and commercial use under CCA 3.0. The demo copy has been swapped for the four model names, so the landing page tiles read GAN, DCGAN, WGAN-CP and WGAN-GP.
-## Things that will bite
-
-The checkpoints are not in the repository (`*.pkl` is git-ignored), so nothing generates until you train something and `save_model()` writes the pair.
 
 MIT, see `LICENSE`. Copyright (c) 2026 NDCGT.
