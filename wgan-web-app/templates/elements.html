@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>GAN</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../static/assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../static/assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index" class="logo">START</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index">模型首页</a></li>
+							<li><a href="generic">模型生成</a></li>
+							<li class="active"><a href="elements">模型结论</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h1>GAN</h1>
+								</header>
+
+								<!-- Text stuff -->
+									<h2>区别分析</h2>
+									<p>GAN：作为生成对抗网络的开创者，GAN具有创新性的训练方法和广泛的应用领域，但存在训练不稳定、模式崩溃和梯度消失等问题。<br />
+									DCGAN：在GAN的基础上，DCGAN引入了深度卷积神经网络的结构，提高了图像生成的质量和稳定性，但并未完全解决GAN的固有问题。<br />
+									WGAN-GP：WGAN-GP通过改进损失函数和引入梯度惩罚项，有效避免了GAN中的模式崩溃和梯度消失问题，提高了训练的稳定性和生成样本的多样性。</p>
+								<div class="image main"><img id="myImage" src="../static/images/score.png" alt="" style="width: 700px; height: 500px; display: block; margin: 0 auto"/></div>
+
+								<!-- Lists -->
+									<h3>结论</h3>
+									<dl>
+										<dt>结论 1</dt>
+										<dd>
+											<p>Inception Score（IS）是一种量化评估GAN生成图像质量的指标，它依赖于预训练的Inception Net-V3对生成图像的分类能力。由于DCGAN并无对权重参数的切剪，Inception模型能够更准确地将其分类到某个类别，导致生成的p(y|x)分布更加集中，熵值更低，从而得到更高的IS评分。</p>
+										</dd>
+										<dt>结论 2</dt>
+										<dd>
+											<p>相比于Wgan-cp直接对参数权重进行检测切割，Wgan-gp引入了梯度惩罚措施，故Wgan-gp的图片相对于Wgan-cp的模型评分更优，且无因为参数权重切割导致输出图片存在白斑模糊。</p>
+										</dd>
+										<dt>结论 3</dt>
+										<dd>
+											<p>Dcgan未加入权重切割以及梯度惩罚，故训练速度更快，但同样的，其稳定性相对于其他两种模型来说较差</p>
+										</dd>
+									</dl>
+
+								<!-- Box -->
+									<h2>写在最后</h2>
+									<div class="box">
+										<p>GAN怎么训练才能更加稳定。目前为数不多的理论是关于网络的Lipschitz 连续性。研究者们相信 ，如果网络满足Lipschitz 连续性，那么GAN的训练会比较稳定。</p>
+										<p>简单来说，如果一个函数的变化是有界的，那么我们说它是Lipschitz连续的。而对于一个函数，它的变化率通常可以用梯度来表示。所以我们自然地想到在训练GAN的过程中，让梯度有界。所以就出现了对GAN中的梯度进行截断、对梯度归一化、对梯度做惩罚项等等操作。</p>
+										<p>But，所有这些操作都是“强行”让网络看起来是Lipschitz 连续的。所以它们各自的有效性并不能轻易看出。对GAN还需要更加深入的理解来解决GAN网络的稳定性问题以及结果模糊的问题。</p>
+									</div>
+
+									<hr />
+
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section>
+							<form method="post" action="#">
+								<div class="fields">
+									<div class="field">
+										<label for="name">Name</label>
+										<input type="text" name="name" id="name" />
+									</div>
+									<div class="field">
+										<label for="email">Email</label>
+										<input type="text" name="email" id="email" />
+									</div>
+									<div class="field">
+										<label for="message">Message</label>
+										<textarea name="message" id="message" rows="3"></textarea>
+									</div>
+								</div>
+								<ul class="actions">
+									<li><input type="submit" value="Send Message" /></li>
+								</ul>
+							</form>
+						</section>
+						<section class="split contact">
+							<section class="alt">
+								<h3>Address</h3>
+								<p>河南工业大学<br />
+								https://www.haut.edu.cn/</p>
+							</section>
+							<section>
+								<h3>Phone</h3>
+								<p><a href="#">(000) 000-0000</a></p>
+							</section>
+							<section>
+								<h3>Email</h3>
+								<p><a href="#">haut</a></p>
+							</section>
+							<section>
+								<h3>Social</h3>
+								<ul class="icons alt">
+									<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+							</section>
+						</section>
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../static/assets/js/jquery.min.js"></script>
+			<script src="../static/assets/js/jquery.scrollex.min.js"></script>
+			<script src="../static/assets/js/jquery.scrolly.min.js"></script>
+			<script src="../static/assets/js/browser.min.js"></script>
+			<script src="../static/assets/js/breakpoints.min.js"></script>
+			<script src="../static/assets/js/util.js"></script>
+			<script src="../static/assets/js/main.js"></script>
+
+	</body>
+</html>

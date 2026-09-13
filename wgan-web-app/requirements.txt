@@ -1,0 +1,18 @@
+# Every entry below is imported somewhere in the tree. Two are easy to miss:
+# PyMySQL is the driver behind the "mysql+pymysql://" URI that config.py hands to
+# Flask-SQLAlchemy, and tensorflow is pulled in only by utils/tensorboard_logger.py.
+Flask
+Flask-SQLAlchemy
+matplotlib
+mysql-connector-python
+numpy
+opencv-python
+Pillow
+PyMySQL
+PyYAML
+scikit-learn
+scipy
+six
+tensorflow
+torch
+torchvision
