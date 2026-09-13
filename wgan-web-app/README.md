@@ -67,8 +67,6 @@ There is no `train.py`, and that is the main practical obstacle. You instantiate
 
 `/test` is the route that does work. It reads a JSON body containing `model`, `is_train`, `download`, `dataroot`, `dataset`, `generator_iters`, `cuda`, `batch_size`, `load_D` and `load_G`, builds the matching class, runs `evaluater(test_loader, load_D, load_G)` and re-renders `generic.html`. Before construction, `load_D` and `load_G` are rewritten to `<stem><model>.pkl`, so one checkpoint pair per model can sit next to each other without collisions.
 
-![The generation page, with WGAN-GP selected](assets/generation-page.png)
-
 The image the page shows comes out of `evaluater()`: DCGAN, WGAN-CP and WGAN-GP all sample a 64-image grid and `utils.save_image` it straight to `static/images/dgan_model_image.png`, which is the file `/generic` and `/test` pass to the template. `GAN.evaluater()` writes its grid to `gan_model_image.png` in the working directory instead, so selecting plain GAN leaves the page showing whatever `dgan_model_image.png` happens to be on disk from a previous run.
 
 `/login` and `/register` connect through `mysql.connector` and query a `user (name, password)` table. Both hardcode `database='c4'` while taking host, user and password from `MYSQL_HOST`, `MYSQL_USER` and `MYSQL_PASSWORD`. `config.py` builds the SQLAlchemy URI from a wider set (`MYSQL_HOST`, `MYSQL_PORT`, `MYSQL_USER`, `MYSQL_PASSWORD`, `MYSQL_DATABASE`, default `C4`) using the `pymysql` driver, and `main.py` creates a `SQLAlchemy(app)` from it even though the auth routes do not use it. Point both paths at the same schema.
