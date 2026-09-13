@@ -10,8 +10,6 @@ The task was anime avatar generation: train a generator that produces 128×128 p
 
 Four models sit behind one dropdown rather than four separate scripts, so the same UI can drive any of them and the comparison stays honest.
 
-![Generator output sampled every 100 iterations from 1600 to 3900](assets/training-progression.png)
-
 ## Four models behind one dropdown
 
 Keeping four implementations around only makes sense if they are actually different, so it is worth being precise about how they differ here.
@@ -36,8 +34,6 @@ Keeping four implementations around only makes sense if they are actually differ
 ## Measuring them
 
 Inception Score is the metric, computed in `utils/inception_score.py`: push generated images through a pretrained `inception_v3`, take the 1000-way softmax, and score `exp(E[KL(p(y|x) || p(y))])` over ten splits. The training loop in each class calls it every `SAVE_PER_TIMES` iterations on 800 freshly sampled latents with `batch_size=16`, and separately saves a 64-image grid to `training_result_images/img_generator_iter_<n>.png` so the run can be watched as it goes.
-
-![Inception Score against generator iterations for the three convolutional models](assets/inception-score.png)
 
 Over 40,000 generator iterations the three separate cleanly and in an order that is not the one you would guess from the theory:
 
